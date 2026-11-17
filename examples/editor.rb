@@ -1,6 +1,7 @@
 # Bismillah
-# A small code editor: write Python, run it (F5) and read its output; a menu, a row of buttons, two areas, the place of the cursor, a light and a dark theme, Ctrl + S and F5.
+# A small code editor: write Ruby, run it (F5) and read its output; a menu, a row of buttons, two areas, the place of the cursor, a light and a dark theme, Ctrl + S and F5.
 require "open3"
+require "rbconfig"
 require "ozdenui"
 include OzdenUI
 
@@ -8,16 +9,17 @@ LIGHT_GROUND = "#FFFFFF"
 DARK_GROUND = "#1C1C1B"
 OUTPUT_HEIGHT = 170
 
-FIRST_TEXT = <<~PYTHON
-  """Press F5 to run this program."""
+FIRST_TEXT = <<~'RUBY'
+  # Press F5 to run this program.
 
-  names = ["Ada", "Can", "Deniz"]
+  names = %w[Ada Can Deniz]
 
-  for number, name in enumerate(names, start=1):
-      print(number, name)
+  names.each.with_index(1) do |name, number|
+    puts "#{number} #{name}"
+  end
 
-  print("Done")
-PYTHON
+  puts :Done
+RUBY
 
 @is_dark = false
 @path = nil
@@ -52,7 +54,7 @@ def program_text
 end
 
 def open_program
-  chosen = open_file(types: ["py"])
+  chosen = open_file(types: ["rb"])
   return if chosen.nil?
   begin
     content = File.read(chosen)
@@ -66,7 +68,7 @@ def open_program
 end
 
 def save_program
-  @path ||= save_file(file_name: "program.py", types: ["py"])
+  @path ||= save_file(file_name: "program.rb", types: ["rb"])
   return if @path.nil?
   begin
     File.write(@path, program_text)
@@ -82,11 +84,13 @@ def run_program
   @output.clear_lines
   @status.busy = true
   @status.message_text = "Running..."
-  Thread.new { run_in_python(code) } # the window keeps working while the program runs
+  Thread.new { run_in_ruby(code) } # the window keeps working while the program runs
 end
 
-def run_in_python(code)
-  Open3.popen2e(python_command, "-u", "-c", code) do |_input, lines, waiter|
+# WHY the same Ruby as this window: no other program is needed. The sync is on the first line of the program, so the
+# lines of its errors stay right, and every line comes to the output as soon as it is written.
+def run_in_ruby(code)
+  Open3.popen2e(RbConfig.ruby, "-e", "$stdout.sync = true; " + code) do |_input, lines, waiter|
     lines.each_line do |line|
       text = line.chomp
       ui { @output.add_line(text) }
@@ -109,12 +113,6 @@ def end_run(problem)
   @output.error(problem) if problem
   @status.busy = false
   @status.message_text = "Ready"
-end
-
-# python3 on macOS and Linux, python on Windows.
-def python_command
-  found = ENV["PATH"].to_s.split(File::PATH_SEPARATOR).any? { |folder| File.executable?(File.join(folder, "python3")) }
-  found ? "python3" : "python"
 end
 
 run(title: "A small code editor", width: 760, height: 600) do |page|
@@ -145,12 +143,12 @@ run(title: "A small code editor", width: 760, height: 600) do |page|
     ])
     @split = Splitter(fill: true, direction: "vertical", second_size: OUTPUT_HEIGHT, min_first: 80, min_second: 60)
     @split.first do
-      @editor = CodeEditor(height: "100%", language: "python", value: FIRST_TEXT, unframed: true,
+      @editor = CodeEditor(height: "100%", language: "ruby", value: FIRST_TEXT, unframed: true,
                            on_cursor_change: method(:show_cursor))
     end
     @split.second do
       @output = LogView(height: "100%", unframed: true, empty_text: "F5 runs the program.")
     end
-    @status = StatusBar(message_text: "Ready", items: [{ key: "place", text: "Line 1, column 1" }, "Python"])
+    @status = StatusBar(message_text: "Ready", items: [{ key: "place", text: "Line 1, column 1" }, "Ruby"])
   end
 end

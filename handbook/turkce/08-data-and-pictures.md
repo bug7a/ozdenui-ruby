@@ -186,19 +186,19 @@ izler. Bir metin hiçbir zaman HTML olarak okunmaz. `log.writer(level)` her thre
 | `MarkdownView(markdown_text: "# Bir rapor\n\nBirkaç **kalın** kelime")` | `view.append_text(piece)` sonuna ekler: bir yapay zekânın cevabı, geldikçe; `view.markdown_text = text` |
 | `JsonView(value: data, height: 400, on_select: fn)` | Hash'lerden, Array'lerden, metinlerden ve sayılardan herhangi bir Ruby değeri; bir tıklama: `->(view, entry) { }`, `entry[:pathText]` (`users[0].name`) |
 | `JsonEditor(value: rows, height: 360, on_change: fn)` | bir tabloda yazılan bir JSON listesi ya da Hash'i; `->(editor, value) { }` bütün değeri alır |
-| `CodeEditor(value: "x = 1", language: "python", height: 300, on_change: fn)` | metni sorulur: `editor.get_value`; Python, JavaScript, Go, JSON, HTML, CSS, SQL, Bash |
+| `CodeEditor(value: "x = 1", language: "ruby", height: 300, on_change: fn)` | metni sorulur: `editor.get_value`; Ruby, Python, JavaScript, Go, JSON, HTML, CSS, SQL, Bash |
 | `ChatView(empty_text: "Bir şey sorun", on_send: fn)` | `->(chat, text) { }`; bir cevap: `chat.add_message(key: key, role: "assistant")`, sonra `chat.append_text(key, piece)`; `chat.busy = true` noktaları ve Stop'u gösterir |
 | `WebView(html_text: page, height: 400)` | bir web sayfası (`url:`) ya da betikleriyle bir HTML metni; `on_message: ->(view, data) { }` sayfasının `parent.postMessage` ile gönderdiğini alır |
 
 - **Büyük ya da hızlı bir değer tutulmaz, sorulur**: bir `CodeEditor` metnini her tuşta göndermez. Gerektiğinde, onun
   `on_change`'inde ya da kullanıcı kaydederken sorun (`change_delay: 120` yazmanın durulmasını bekler).
-- `CodeEditor`'ün henüz Ruby için renkleri yoktur: `language: "text"` bir Ruby programını renksiz gösterir.
+- Bir `MarkdownView`'da `ruby` (ya da `rb`) diye işaretli bir kod bloğu da Ruby'nin renklerini alır.
 - Bir Markdown metni hiçbir zaman HTML olarak okunmaz ve hiçbir betiği çalışmaz. Sayfa bir dosyayı yolundan okuyamaz:
   bu bilgisayardaki bir resim metne `picture(path)` olarak girer (`examples/markdown_editor.rb` bunu yapar). `http`
   adresli bir resim bir bağlantı olarak kalır (güvendiğiniz bir metin için `remote_pictures: true`).
 - Bir `ChatView` cevabının parçaları bir thread'den `ui { }` ile gelebilir: pencere çalışmaya devam eder ve görünüm,
   okuyan yukarı kaydırana kadar sonu izler (`examples/chat.rb`).
-- `examples/markdown_editor.rb`, `examples/json_viewer.rb` ve `examples/editor.rb` (Python programını çalıştıran küçük
+- `examples/markdown_editor.rb`, `examples/json_viewer.rb` ve `examples/editor.rb` (Ruby programını çalıştıran küçük
   bir düzenleyici) bunları gösterir.
 
 ## Çizim: Canvas

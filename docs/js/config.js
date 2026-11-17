@@ -30,7 +30,7 @@ const CONFIG = {
 
     // *** THE GEM:
     gemName: "ozdenui",
-    version: "0.1.0",
+    version: "0.1.1",
     rubyVersion: "2.6",
     githubURL: "https://github.com/bug7a/ozdenui-ruby", // the repository of the gem ("": the GitHub button is hidden)
     rubygemsURL: "https://rubygems.org/gems/ozdenui", // the gem on RubyGems ("": its link is hidden)
@@ -45,7 +45,7 @@ const CONFIG = {
     goURL: "https://bug7a.github.io/ozdenui-go/",
     authorURL: "https://bug7a.github.io/",
 
-    // *** FACTS: (of ozdenui v0.1.0: its README, kit.json and lib/ozdenui/web/)
+    // *** FACTS: (of ozdenui v0.1.1: its README, kit.json and lib/ozdenui/web/)
     // WHY \u00A0: a number and its unit stay on one line
     componentCount: 83,           // the components of the kit that are a method of their name (kit.json: 85, less TapEffect and Toast)
     embedSize: "3.4\u00A0MB",     // basic.js and the components inside the gem (the files of lib/ozdenui/web: 3.43 MB)

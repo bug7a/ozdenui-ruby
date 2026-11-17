@@ -150,7 +150,7 @@ const TEXTS = {
         examplesTitle: "Twenty-one small programs",
         examplesLead: "In the examples folder of the repository: ruby -Ilib examples/gallery.rb. A check draws each one in a hidden browser, light and dark, and fails on a wrong name.",
         examples: [
-            { key: "editor", image: "editor", title: "A small code editor", text: "Write Python, press F5 and read its output: a menu, a row of buttons, two areas, a dark theme." },
+            { key: "editor", image: "editor", title: "A small code editor", text: "Write Ruby, press F5 and read its output: a menu, a row of buttons, two areas, a dark theme." },
             { key: "markdown_editor", image: "markdown-editor", title: "A small Markdown editor", text: "Write on the left, read on the right: headings, a table, colored code, a file with its pictures." },
             { key: "json_viewer", image: "json-viewer", title: "A small JSON viewer", text: "Open a file, click a row to see its path, right click to copy its value." },
             { key: "csv_viewer", image: "csv-viewer", title: "CSV viewer", text: "A CSV file in a table with a filter; 100000 rows stay fast." },
@@ -342,7 +342,7 @@ const TEXTS = {
         examplesTitle: "Yirmi bir küçük program",
         examplesLead: "Deponun examples klasöründe: ruby -Ilib examples/gallery.rb. Bir denetim her birini gizli bir tarayıcıda açık ve koyu çizer; yanlış bir adda hata verir.",
         examples: [
-            { key: "editor", image: "editor", title: "Küçük bir kod düzenleyici", text: "Python yazın, F5'e basın, çıktısını okuyun: menü, düğme satırı, iki alan, koyu tema." },
+            { key: "editor", image: "editor", title: "Küçük bir kod düzenleyici", text: "Ruby yazın, F5'e basın, çıktısını okuyun: menü, düğme satırı, iki alan, koyu tema." },
             { key: "markdown_editor", image: "markdown-editor", title: "Küçük bir Markdown düzenleyici", text: "Solda yazın, sağda okuyun: başlıklar, tablo, renkli kod, resimleriyle bir dosya." },
             { key: "json_viewer", image: "json-viewer", title: "Küçük bir JSON görüntüleyici", text: "Dosya açın, satıra tıklayıp yolunu görün, sağ tıkla değerini kopyalayın." },
             { key: "csv_viewer", image: "csv-viewer", title: "CSV görüntüleyici", text: "Süzmeli bir tabloda bir CSV dosyası; 100000 satırda bile hızlı." },

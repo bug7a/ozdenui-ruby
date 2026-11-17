@@ -185,20 +185,20 @@ by itself, and every line of it is a line of the view. `examples/job_log.rb`.
 | `MarkdownView(markdown_text: "# A report\n\nSome **bold** words")` | `view.append_text(piece)` adds to the end: the answer of an AI as it comes; `view.markdown_text = text` |
 | `JsonView(value: data, height: 400, on_select: fn)` | any Ruby value of Hashes, Arrays, texts and numbers; a click: `->(view, entry) { }`, `entry[:pathText]` (`users[0].name`) |
 | `JsonEditor(value: rows, height: 360, on_change: fn)` | a list or a Hash of JSON written in a table; `->(editor, value) { }` gets the whole value |
-| `CodeEditor(value: "x = 1", language: "python", height: 300, on_change: fn)` | its text is asked: `editor.get_value`; Python, JavaScript, Go, JSON, HTML, CSS, SQL, Bash |
+| `CodeEditor(value: "x = 1", language: "ruby", height: 300, on_change: fn)` | its text is asked: `editor.get_value`; Ruby, Python, JavaScript, Go, JSON, HTML, CSS, SQL, Bash |
 | `ChatView(empty_text: "Ask something", on_send: fn)` | `->(chat, text) { }`; an answer: `chat.add_message(key: key, role: "assistant")`, then `chat.append_text(key, piece)`; `chat.busy = true` shows the dots and Stop |
 | `WebView(html_text: page, height: 400)` | a web page (`url:`) or an HTML text with its scripts; `on_message: ->(view, data) { }` gets what its page sends with `parent.postMessage` |
 
 - **A big or fast value is asked, not kept**: a `CodeEditor` does not send its text with every key. Ask it when you
   need it, in its `on_change` or when the user saves (`change_delay: 120` waits for the typing to rest).
-- `CodeEditor` has no colors for Ruby yet: `language: "text"` shows a Ruby program without them.
+- A code block of a `MarkdownView` marked `ruby` (or `rb`) takes the colors of Ruby too.
 - A Markdown text is never read as HTML and no script of it runs. The page can not read a file by its path: a picture
   of this computer goes into the text as `picture(path)` (`examples/markdown_editor.rb` does it). A picture with an
   `http` address stays a link (`remote_pictures: true` for a text you trust).
 - The pieces of an answer of a `ChatView` may come from a thread through `ui { }`: the window keeps working, and the
   view follows the end until the reader scrolls up (`examples/chat.rb`).
 - `examples/markdown_editor.rb`, `examples/json_viewer.rb` and `examples/editor.rb` (a small editor that runs its
-  Python program) show them.
+  Ruby program) show them.
 
 ## Drawing: Canvas
 

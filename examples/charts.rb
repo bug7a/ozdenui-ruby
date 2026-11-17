@@ -1,6 +1,5 @@
 # Bismillah
 # Charts with no other library: a live line, bars with a format, a doughnut, two lines with a target. The page draws them.
-require "base64"
 require "ozdenui"
 include OzdenUI
 
@@ -50,7 +49,7 @@ def save_picture
     return
   end
   begin
-    File.binwrite(path, Base64.decode64(encoded))
+    File.binwrite(path, encoded.unpack1("m"))
   rescue SystemCallError => error
     toast_error(error.message, title: "Could not save it")
     return

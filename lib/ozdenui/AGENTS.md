@@ -68,7 +68,7 @@ end
 - **The names are the names of basic.js and the kit, in snake_case:** `fontSize` is `font_size:`, `labelText` is
   `label_text:`, `onClick` is `on_click:`. A value is a named value when the object is made and a setter later:
   `label.text = "Hi"`, `label.font_size = 20`, or more at once: `label.set(text: "Hi", font_size: 20)`.
-- Reading: `label.text`, `field.text`, `select_box.value`, `box.checked?`, `list.selected_keys`, `obj.enabled?`:
+- Reading: `label.text`, `field.text`, `select_box.value`, `box.checked?`, `list.selected_keys`:
   what the program gave, or what the window told. A value that was never given is `nil`.
 - Every object: `color:` (the background), `border:`, `border_color:`, `round:`, `opacity:`, `visible:`, `width:`,
   `height:`, `css: { letterSpacing: "1px" }`. A size is a number (px) or a text: `"100%"`, `"auto"`. Flags take
@@ -164,7 +164,7 @@ Each is a method of its name; its state is read from the program (`field.text`, 
   called with `obj.call(:send, text)`. Do not name your own top-level methods like the ones of Ruby (`send`, `format`,
   `display`, `open`, `test`) or of OzdenUI (`run`, `close`, `ask`, `page`, `after`).
 - An icon may be the text of an SVG: `icon_file: picture(svg_text)`.
-- A name of the kit that is not snake_case goes as a text: `Tabs("tab_border" => 1)`. Any component by its name:
+- A name of the kit that is not snake_case goes as a text: `LoginPage("tab_border" => 1)`. Any component by its name:
   `component("Gauge", value: 72)`.
 
 ## Looks

@@ -45,6 +45,8 @@ gem install ozdenui
 ruby counter.rb
 ```
 
+**[The site](https://bug7a.github.io/ozdenui-ruby/)** · **[The handbook](https://bug7a.github.io/ozdenui-ruby/handbook/)** (ten short chapters, English and Turkish; the files are in [handbook/](handbook/README.md))
+
 v0.1, experimental: made and tested on macOS; Windows and Linux use the window of Edge or Chrome and are checked by
 the tests of the repository, not yet by hand. Ruby 2.6 or newer.
 
@@ -107,7 +109,7 @@ end
 
 ## Components
 
-Every component of the kit is a method of its name; its params are the params of the kit in snake_case.
+A component of the kit is a method of its name; its params are the params of the kit in snake_case.
 `ozdenui doc SelectBox` prints them in the terminal, each with its default
 ([all of them](lib/ozdenui/COMPONENTS.md)).
 

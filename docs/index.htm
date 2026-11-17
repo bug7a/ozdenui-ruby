@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>OzdenUI for Ruby – Modern desktop windows, in plain Ruby</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OzdenUI for Ruby opens a small, modern window of its own from Ruby: boxes, texts, buttons and the 83 ready components of basic.js, each a method of its name, with blocks. Only Ruby: no JavaScript, no HTML, no front-end build, no other gem and no compiler.">
+    <meta name="keywords" content="ozdenui, OzdenUI, OzdenUI for Ruby, basic.js, Ruby GUI, Ruby desktop app, desktop window, Ruby UI gem, no HTML, no CSS">
+    <meta name="author" content="Buğra Özden">
+    <meta name="theme-color" content="#130F0F">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- LANGUAGES: The same page in English (https://bug7a.github.io/ozdenui-ruby/) and in Turkish (?lang=tr).
+         canonical is added by js/site.js: it is different for each language. -->
+    <link rel="canonical" href="https://bug7a.github.io/ozdenui-ruby/">
+    <link rel="alternate" hreflang="en" href="https://bug7a.github.io/ozdenui-ruby/">
+    <link rel="alternate" hreflang="tr" href="https://bug7a.github.io/ozdenui-ruby/?lang=tr">
+    <link rel="alternate" hreflang="x-default" href="https://bug7a.github.io/ozdenui-ruby/">
+
+    <!-- SEO: The page has two languages at the same address: ?lang=tr / ?lang=en (js/site.js, the default one has no ?lang).
+         The published address is CONFIG.siteURL (js/config.js): js/site.js sets canonical, hreflang and og:url with it.
+         The address is also written below (canonical, hreflang, og:url, og:image): link previews do not run JavaScript.
+         The <noscript> part and the JSON-LD are made from js/texts.js: keep them the same when the texts change. -->
+
+    <!-- SOCIAL (link preview) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OzdenUI">
+    <meta property="og:title" content="OzdenUI for Ruby – Modern desktop windows, in plain Ruby">
+    <meta property="og:description" content="OzdenUI for Ruby opens a small, modern window of its own from Ruby: boxes, texts, buttons and the 83 ready components of basic.js, each a method of its name, with blocks. Only Ruby: no JavaScript, no HTML, no front-end build, no other gem and no compiler.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="og:url" content="https://bug7a.github.io/ozdenui-ruby/">
+    <meta property="og:image" content="https://bug7a.github.io/ozdenui-ruby/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="OzdenUI for Ruby – Modern desktop windows, in plain Ruby">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- STRUCTURED DATA (schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "OzdenUI for Ruby",
+        "description": "OzdenUI for Ruby opens a small, modern window of its own from Ruby: boxes, texts, buttons and the 83 ready components of basic.js, each a method of its name, with blocks. Only Ruby: no JavaScript, no HTML, no front-end build, no other gem and no compiler.",
+        "codeRepository": "https://github.com/bug7a/ozdenui-ruby",
+        "programmingLanguage": "Ruby",
+        "runtimePlatform": "Ruby 2.6+",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "isAccessibleForFree": true,
+        "inLanguage": [
+            "en",
+            "tr"
+        ],
+        "keywords": "Ruby GUI, desktop window, basic.js",
+        "author": {
+            "@type": "Person",
+            "name": "Buğra Özden",
+            "url": "https://bug7a.github.io/",
+            "sameAs": [
+                "https://github.com/bug7a/",
+                "https://www.linkedin.com/in/bugra-ozden/"
+            ]
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><!-- The rosehip of the logo of OzdenUI FOR RUBY -->
+
+    <!-- LIBRARY FILES (the basic folder of the repository; _make-standalone.sh makes a copy that works alone) -->
+    <link rel="preload" href="basic/font/open-sans/OpenSans-Regular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="basic/font/open-sans/OpenSans-Bold.ttf" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="basic/basic.min.css">
+    <script src="basic/basic.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="basic/scroll-bar.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- COMPONENT FILES -->
+    <script src="comp/components.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- SITE FILES -->
+    <script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/texts.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/samples.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/image-sizes.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/theme.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/code-highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/shots.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- SECTION FILES -->
+    <script src="js/sections/hero.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/code.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/why.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/components.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/own.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/dialogs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/examples.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/fit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/start.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/sections/footer.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/site.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--
+
+    /* Bismillah */
+
+    OZDENUI FOR RUBY WEBSITE
+    - The page of the Ruby gem OzdenUI for Ruby (ozdenui): the sister of the sites of OzdenUI for Go and for Python.
+    - The whole page is drawn with basic.js. The Ruby code is shown, not run; the pictures are real windows
+      (tools/make-images.sh makes them from the examples of the gem).
+    - Texts: js/texts.js  |  Code: js/samples.js  |  Settings: js/config.js  |  Colors: js/theme.js
+    - The flow of the page: js/site.js -> SiteApp.build()
+
+    Started Date: November 2026
+    Webpage: https://bug7a.github.io/ozdenui-ruby/
+
+    Copyright 2026 Bugra Ozden <bugra.ozden@gmail.com> (https://bug7a.github.io/)
+    Licensed under the Apache License, Version 2.0
+    SPDX-License-Identifier: Apache-2.0
+
+    -->
+
+    <style>
+
+        /* The text shown when JavaScript is off */
+        .noscript-box {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 100%;
+            overflow: auto; /* WHY: basic.css turns off the scrolling of <body>. */
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            font-family: opensans;
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.82);
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <noscript>
+        <div class="noscript-box">
+            <div style="max-width: 760px; margin: 0 auto; text-align: left;">
+                <p><a href="?lang=tr" hreflang="tr" lang="tr" style="color: inherit;">Türkçe</a></p>
+                <h1>Modern desktop windows, in&nbsp;plain Ruby</h1>
+                <p>Write the window in Ruby: boxes, texts, buttons and ready components appear in a small window of its own. Only Ruby: no JavaScript, no HTML, no CSS, no front-end build, no other gem and no compiler.</p>
+                <p>v0.1.0 · experimental · Ruby 2.6+ · tested on macOS · 83 components, each a method · basic.js inside: about 3.4 MB, no internet · no other gem, no compiler · Apache 2.0</p>
+                <p><code>gem install ozdenui</code></p>
+                <h2>A counter in a few lines</h2>
+                <p>Groups place the objects for you, and a lambda given to a button runs when it is clicked.</p>
+                <ul>
+                    <li><b>A group is a block.</b> The objects made in the block of a group go into it: the shape of the code is the shape of the window.</li>
+                    <li><b>Values in Ruby.</b> @label.text = "1" changes the window; field.text and box.checked? are read in Ruby, with no question to the window.</li>
+                    <li><b>One thread, no locks.</b> The block of run, an event and a timer run one at a time. The changes of a task go to the window together, when it ends.</li>
+                </ul>
+                <h2>Only Ruby, nothing to build</h2>
+                <ul>
+                    <li><b>No other gem, no compiler.</b> gem install ozdenui and nothing else: no native extension to build, no Node, no npm. basic.js and its components are inside the gem (about 3.4 MB) and are served only to this computer: no internet.</li>
+                    <li><b>The Ruby you already have.</b> Ruby 2.6 or newer, also the Ruby that comes with macOS. On macOS the window is the web view of the system, called through fiddle; on Windows and Linux it is an app window of Edge or Chrome.</li>
+                    <li><b>Code that reads like the window.</b> Groups are blocks, the names are those of basic.js in snake_case, events are lambdas, methods or blocks. A wrong name is told in the terminal with the line of your program and the name you meant.</li>
+                    <li><b>Threads welcome.</b> A slow job runs in a Thread of its own and the window does not wait. ui { } brings its result back to the objects.</li>
+                </ul>
+                <h2>Ready components, called from Ruby</h2>
+                <p>SmartButton, TextField, EmailField, PasswordField, NumberField, UrlField, PhoneField, CurrencyField, TextAreaField, SearchInput, TagInput, CheckBox, Toggle, RadioButton, SelectBox, Slider, RangeSlider, SliderField, Stepper, DatePicker, TimePicker, ColorPicker, FilePicker, ProgressBar, StepBar, ItemList, SortableList, SmartTable, DataTable, TreeView, Tabs, Accordion, GridGroup, ScrollArea, Splitter, SidePanel, GraphBox, Gauge, LogView, ImageView, MarkdownView, JsonView, JsonEditor, CodeEditor, Canvas, ChatView, WebView, MenuBar, ToolBar, StatusBar, ContextMenu, Tooltip and the others of the 83. Each one is a method of its name, with the params of the kit in snake_case; component("Gauge", ...) makes any of them by its name.</p>
+                <h2>A component of your own, in plain Ruby</h2>
+                <p>A class that makes its objects in a group is a component: use it again and again, change it with its methods, share it as a file or a gem. No JavaScript is needed.</p>
+                <h2>A dialog that returns its answer</h2>
+                <p>confirm waits for the answer and returns it, like a question in a terminal. The window keeps working meanwhile: timers run and the page is drawn.</p>
+                <h2>Twenty-one small programs</h2>
+                <p>A small code editor, A small Markdown editor, A small JSON viewer, CSV viewer, A chat, Charts, Image viewer, A job and its log, A form, Settings, To do, Notes, Dialogs, Gallery, The minimal look, Calculator, The basic objects, Counter, Greeting, Clock and Catch the dots, in the examples folder of the repository.</p>
+                <h2>Where it fits</h2>
+                <p>A good choice for a script or a command line tool that needs a window, for a tool given to your team as one Ruby file, and for a modern look without HTML, CSS or a front-end build. For more than one window (v0.1.0 has one window for a program), a program given as an app of its own, a large desktop application with the widgets of the system (Ruby/GTK) or a web application for many users (Rails or Sinatra), something else is better.</p>
+                <h2>Three steps</h2>
+                <ol>
+                    <li><b>Install it.</b> gem install ozdenui: one gem, with no other gem behind it and nothing to compile. On macOS the Ruby of the system is enough.</li>
+                    <li><b>Write the block of run.</b> Make the objects of the window in it. Groups place them; a lambda or a method runs on a click.</li>
+                    <li><b>Run it.</b> ruby hello.rb opens a window; run returns when it is closed.</li>
+                </ol>
+                <p><a href="handbook/" style="color: inherit;">The handbook</a>: from the first window to a component of your own, in English and Turkish.</p>
+                <p>Ruby 2.6+. Tested on macOS: the window is the web view of the system (WKWebView). On Windows and Linux it is an app window of Edge or Chrome; these two are checked by the tests of the repository, not yet by hand.</p>
+                <p>OzdenUI for Ruby is open source under the Apache 2.0 license: <a href="https://github.com/bug7a/ozdenui-ruby" style="color: inherit;">GitHub</a>, <a href="https://rubygems.org/gems/ozdenui" style="color: inherit;">RubyGems</a>. The family: <a href="https://bug7a.github.io/ozdenui-python/" style="color: inherit;">OzdenUI for Python</a>, <a href="https://bug7a.github.io/ozdenui-go/" style="color: inherit;">OzdenUI for Go</a>, <a href="https://bug7a.github.io/basic.js/" style="color: inherit;">basic.js</a>, <a href="https://bug7a.github.io/js-components/" style="color: inherit;">the components</a>. This page is built with basic.js. Developed with the help of Claude Code (Anthropic). © 2026 Buğra Özden.</p>
+            </div>
+        </div>
+    </noscript>
+
+</body>
+
+</html>

@@ -97,6 +97,7 @@ module OzdenUI
         values = {}
         given.merge(props).each do |name, value|
           key = Values.kit_name(name)
+          raise Error, "fill: is given when the object is made" if key == "fill"
           values[key] = value unless take_special_value(key, value)
         end
         return self if values.empty?
@@ -479,7 +480,6 @@ module OzdenUI
           set_picture(value)
           return true
         end
-        raise Error, "fill: is given when the object is made" if name == "fill"
         false
       end
     end

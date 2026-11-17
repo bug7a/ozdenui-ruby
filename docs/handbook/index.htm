@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>OzdenUI for Ruby – The Handbook</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn OzdenUI for Ruby step by step: the first window, objects, layout, events, components, dialogs, looks, data and a component of your own. Ten short chapters for people who know Ruby.">
+    <meta name="keywords" content="ozdenui, OzdenUI, OzdenUI for Ruby, basic.js, Ruby GUI, Ruby desktop, handbook, tutorial, desktop window, Ruby UI gem">
+    <meta name="author" content="Buğra Özden">
+    <meta name="theme-color" content="#FBFBF9">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- LANGUAGES: The same page in English (https://bug7a.github.io/ozdenui-ruby/handbook/) and in Turkish (?lang=tr).
+         canonical is added by js/site.js: it is different for each language. -->
+    <link rel="canonical" href="https://bug7a.github.io/ozdenui-ruby/handbook/">
+    <link rel="alternate" hreflang="en" href="https://bug7a.github.io/ozdenui-ruby/handbook/">
+    <link rel="alternate" hreflang="tr" href="https://bug7a.github.io/ozdenui-ruby/handbook/?lang=tr">
+    <link rel="alternate" hreflang="x-default" href="https://bug7a.github.io/ozdenui-ruby/handbook/">
+
+    <!-- SEO: The page has two languages at the same address: ?lang=tr / ?lang=en (js/site.js, the default one has no ?lang).
+         The published address is CONFIG.siteURL (js/config.js): js/site.js sets canonical, hreflang, og:url and og:image
+         with it. The address is also written below (canonical, hreflang, og:url, og:image): link previews do not run
+         JavaScript.
+         The <noscript> part and the JSON-LD are made from js/config.js (the chapters) and the titles of the chapters: keep
+         them the same when they change. -->
+
+    <!-- SOCIAL (link preview) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OzdenUI">
+    <meta property="og:title" content="OzdenUI for Ruby – The Handbook">
+    <meta property="og:description" content="Learn OzdenUI for Ruby step by step: the first window, objects, layout, events, components, dialogs, looks, data and a component of your own. Ten short chapters for people who know Ruby.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="og:url" content="https://bug7a.github.io/ozdenui-ruby/handbook/">
+    <meta property="og:image" content="https://bug7a.github.io/ozdenui-ruby/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="OzdenUI for Ruby – Modern desktop windows, in plain Ruby">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- STRUCTURED DATA (schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "OzdenUI for Ruby – The Handbook",
+        "description": "Learn OzdenUI for Ruby step by step: the first window, objects, layout, events, components, dialogs, looks, data and a component of your own. Ten short chapters for people who know Ruby.",
+        "inLanguage": [
+            "en",
+            "tr"
+        ],
+        "isAccessibleForFree": true,
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "about": {
+            "@type": "SoftwareSourceCode",
+            "name": "OzdenUI for Ruby",
+            "programmingLanguage": "Ruby",
+            "runtimePlatform": "Ruby 2.6+"
+        },
+        "hasPart": [
+            { "@type": "Chapter", "name": "Introduction", "position": 1 },
+            { "@type": "Chapter", "name": "The first window", "position": 2 },
+            { "@type": "Chapter", "name": "Objects", "position": 3 },
+            { "@type": "Chapter", "name": "Layout", "position": 4 },
+            { "@type": "Chapter", "name": "Events and time", "position": 5 },
+            { "@type": "Chapter", "name": "Components", "position": 6 },
+            { "@type": "Chapter", "name": "Dialogs, messages and files", "position": 7 },
+            { "@type": "Chapter", "name": "Looks", "position": 8 },
+            { "@type": "Chapter", "name": "Data and pictures", "position": 9 },
+            { "@type": "Chapter", "name": "Your own component", "position": 10 },
+            { "@type": "Chapter", "name": "Going further", "position": 11 }
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Buğra Özden",
+            "url": "https://bug7a.github.io/",
+            "sameAs": [
+                "https://github.com/bug7a/",
+                "https://www.linkedin.com/in/bugra-ozden/"
+            ]
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><!-- The rosehip of the logo of OzdenUI FOR RUBY -->
+
+    <!-- LIBRARY FILES (the basic folder of the repository; _make-standalone.sh makes a copy that works alone) -->
+    <link rel="preload" href="../basic/font/open-sans/OpenSans-Regular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="../basic/font/open-sans/OpenSans-Bold.ttf" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../basic/basic.min.css">
+    <script src="../basic/basic.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../basic/scroll-bar.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- COMPONENT FILES -->
+    <script src="../comp/components.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- SITE FILES (code-highlight.js is the one of the main page of the site: it knows Ruby) -->
+    <script src="../js/code-highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/texts.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/theme.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/markdown.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/code-block.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/doc-view.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/layout.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/site.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--
+
+    /* Bismillah */
+
+    OzdenUI for Ruby Handbook Website - v26.11
+    - The handbook of the Ruby gem OzdenUI for Ruby as a web page: the Markdown chapters of ozdenui-ruby/handbook
+      (english/, turkce/: copies made by ../tools/update-handbook.sh), drawn with basic.js, with a menu, search,
+      "On this page" and two languages. A copy of the handbook page of OzdenUI for Go (whose engine is the one of
+      03-webpages/webpage-handbook), without the live examples: the code is Ruby. A chapter whose file is not there yet
+      is shown as a short "not here yet" page.
+    - Texts: js/texts.js  |  Chapters and settings: js/config.js  |  Colors: js/theme.js
+    - The flow of the page: js/site.js -> start()
+    - The chapters are read with fetch: open the folder with a web server (VS Code Live Server).
+
+    Started Date: November 2026
+    Webpage: https://bug7a.github.io/ozdenui-ruby/
+
+    Copyright 2026 Bugra Ozden <bugra.ozden@gmail.com> (https://bug7a.github.io/)
+    Licensed under the Apache License, Version 2.0
+    SPDX-License-Identifier: Apache-2.0
+
+    -->
+
+    <style>
+
+        /* The text shown when JavaScript is off */
+        .noscript-box {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 100%;
+            overflow: auto; /* WHY: basic.css turns off the scrolling of <body>. */
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            font-family: opensans;
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.82);
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <noscript>
+        <div class="noscript-box">
+            <div style="max-width: 760px; margin: 0 auto; text-align: left;">
+                <p><a href="?lang=tr" hreflang="tr" lang="tr" style="color: inherit;">Türkçe</a></p>
+                <h1>OzdenUI for Ruby – The Handbook</h1>
+                <p>Build a desktop window in plain Ruby: objects, groups and ready components. Only Ruby: no JavaScript, no HTML, no front-end build. Ten short chapters for people who know Ruby and have never written a web page.</p>
+                <h2>Start here</h2>
+                <ul>
+                    <li><a href="#/start" style="color: inherit;">Introduction</a></li>
+                </ul>
+                <h2>The basics</h2>
+                <ul>
+                    <li><a href="#/first-window" style="color: inherit;">1. The first window</a></li>
+                    <li><a href="#/objects" style="color: inherit;">2. Objects</a></li>
+                    <li><a href="#/layout" style="color: inherit;">3. Layout</a></li>
+                    <li><a href="#/events-and-time" style="color: inherit;">4. Events and time</a></li>
+                </ul>
+                <h2>Components and looks</h2>
+                <ul>
+                    <li><a href="#/components" style="color: inherit;">5. Components</a></li>
+                    <li><a href="#/dialogs-and-files" style="color: inherit;">6. Dialogs, messages and files</a></li>
+                    <li><a href="#/looks" style="color: inherit;">7. Looks</a></li>
+                    <li><a href="#/data-and-pictures" style="color: inherit;">8. Data and pictures</a></li>
+                </ul>
+                <h2>Further</h2>
+                <ul>
+                    <li><a href="#/your-own-component" style="color: inherit;">9. Your own component</a></li>
+                    <li><a href="#/going-further" style="color: inherit;">10. Going further</a></li>
+                </ul>
+                <p>The chapters are Markdown files: <a href="english/README.md" style="color: inherit;">English</a>, <a href="turkce/README.md" style="color: inherit;">Türkçe</a>. The main page: <a href="../" style="color: inherit;">OzdenUI for Ruby</a>.</p>
+            </div>
+        </div>
+    </noscript>
+
+</body>
+
+</html>

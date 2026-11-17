@@ -149,7 +149,15 @@ module OzdenUI
       rescue IOError, SystemCallError
         nil # the page closed the link
       ensure
+        close_quietly(socket)
+      end
+
+      # WHY: on Windows close itself can raise ECONNRESET when the page already dropped the link, and the error ended
+      # the thread with a message in the terminal.
+      def close_quietly(socket)
         socket.close unless socket.closed?
+      rescue IOError, SystemCallError
+        nil
       end
 
       def respond(socket, status, kind, body)

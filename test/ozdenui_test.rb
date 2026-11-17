@@ -416,8 +416,12 @@ class OzdenUITest < Minitest::Test
     end
     Thread.new { ui.ui { order << "ui" } }
     pause(200)
-    ticks = order.count("tick")
-    @problems << "the timers and ui { }: #{order.inspect}" unless ticks.between?(2, 5) && order.include?("once") && order.first == "ui"
+    # WHY not a count of ticks: a slow machine (the macOS runners of CI) runs fewer of them in the same time; what must
+    # hold is that the timer ran, that it stopped, and that ui { } came first.
+    once_at = order.index("once")
+    ticked = order.include?("tick")
+    stopped = once_at && !order[(once_at + 1)..-1].include?("tick")
+    @problems << "the timers and ui { }: #{order.inspect}" unless ticked && stopped && order.first == "ui"
     # Another thread may not change an object: it is told how.
     label = ui.Label(text: "x")
     told = Thread.new do

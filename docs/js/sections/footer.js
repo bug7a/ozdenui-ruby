@@ -77,17 +77,14 @@ FooterSection.years = function () {
     return FooterSection.FIRST_YEAR + "–" + year;
 };
 
-// The links: the family of OzdenUI; the ones that do not exist yet are left out
+// The links: the handbook, basic.js, RubyGems, GitHub (the family of OzdenUI has its strip over the footer: family.js)
 FooterSection.links = function () {
 
     const T = SITE.T;
     const links = [];
 
     if (CONFIG.handbookURL) links.push({ text: T.navHandbook, url: SiteApp.handbookAddress(), sameTab: 1 });
-    links.push({ text: T.navPython, url: CONFIG.pythonURL });
-    links.push({ text: T.navGo, url: CONFIG.goURL });
     links.push({ text: T.navBasicJs, url: CONFIG.basicjsURL });
-    links.push({ text: T.navComponents, url: CONFIG.componentsURL });
     if (CONFIG.rubygemsURL) links.push({ text: T.navRubyGems, url: CONFIG.rubygemsURL });
     if (CONFIG.githubURL) links.push({ text: "GitHub", url: CONFIG.githubURL });
 

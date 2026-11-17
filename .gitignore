@@ -1,0 +1,6 @@
+/pictures/
+/pkg/
+*.gem
+_notes*.md
+Gemfile.lock
+.DS_Store

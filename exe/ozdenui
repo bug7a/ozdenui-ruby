@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+# Bismillah
+#
+# ozdenui - ozdenui v0.1 (OzdenUI: basic.js for Ruby)
+# The command of the gem: the rules of OzdenUI for the AI assistant of a project (agents), and the params of a
+# component in the terminal (doc).
+#
+# Started Date: November 2026
+# Webpage: https://bug7a.github.io/ozdenui-ruby/
+#
+# Copyright 2026 Bugra Ozden <bugra.ozden@gmail.com> (https://bug7a.github.io/)
+# Licensed under the Apache License, Version 2.0
+# SPDX-License-Identifier: Apache-2.0
+
+require_relative "../lib/ozdenui/command"
+
+exit OzdenUICommand.run(ARGV)

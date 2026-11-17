@@ -1,0 +1,42 @@
+# Every push: the tests (with a real page in a hidden browser), then a picture of every example, light and dark,
+# on macOS, Windows and Linux, with the oldest Ruby the gem takes and the newest.
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        ruby: ["2.6", "3.4"]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: The kit copy and kit.json agree
+        shell: bash
+        run: |
+          ruby tools/gen.rb
+          git diff --exit-code lib/ozdenui/kit.json lib/ozdenui/COMPONENTS.md
+      - name: The tests
+        run: ruby test/ozdenui_test.rb
+      - name: The gem is built
+        run: gem build ozdenui.gemspec
+      - name: Every example in a hidden browser
+        shell: bash
+        run: checks/look-all.sh pictures
+      - name: The pictures of the windows
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pictures-${{ matrix.os }}-${{ matrix.ruby }}
+          path: pictures
+          if-no-files-found: ignore

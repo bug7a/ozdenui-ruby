@@ -1,0 +1,782 @@
+{
+  "Accordion": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "containerHint": "accordion.section(key) { ... }",
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "openKeys": "getOpenKeys()"
+    },
+    "stateDefaults": {
+      "openKeys": []
+    },
+    "sync": [
+      "onToggle"
+    ]
+  },
+  "Canvas": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark"
+  },
+  "ChatView": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "busy": "busy"
+    },
+    "sync": [
+      "onStop"
+    ]
+  },
+  "CheckBox": {
+    "aliases": {
+      "text": "labelText"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "checked": "checked"
+    },
+    "stateDefaults": {
+      "checked": 0,
+      "enabled": 1
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "CodeEditor": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "state": {
+      "cursorColumn": "cursorColumn",
+      "cursorLine": "cursorLine"
+    },
+    "stateDefaults": {
+      "cursorColumn": 1,
+      "cursorLine": 1
+    },
+    "sync": [
+      "onCursorChange"
+    ]
+  },
+  "ColorPicker": {
+    "aliases": {
+      "value": "selectedColor"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "value": ""
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "ContextMenu": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "hasOwnPlace": true
+  },
+  "CurrencyField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "placeholder": "",
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "DataTable": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "selectedRow": "getSelectedData()"
+    },
+    "sync": [
+      "onSelect"
+    ]
+  },
+  "DatePicker": {
+    "aliases": {
+      "value": "date"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "value": ""
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "Dialog": {
+    "darkStyle": "ozdenDark",
+    "hasMinimal": true
+  },
+  "EmailField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "maxLength": 254,
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "FilePicker": {
+    "darkStyle": "dark",
+    "defaults": {
+      "shrink": 0
+    },
+    "hasMinimal": true,
+    "state": {
+      "files": "getFileDetails()"
+    },
+    "stateDefaults": {
+      "files": []
+    }
+  },
+  "FullScreenSelect": {
+    "darkStyle": "dark"
+  },
+  "Gauge": {
+    "darkStyle": "dark"
+  },
+  "GraphBox": {
+    "formatParams": [
+      "formatValue",
+      "formatX"
+    ],
+    "themeParam": true
+  },
+  "GridGroup": {
+    "boxFields": [
+      "padding",
+      "color",
+      "round"
+    ],
+    "container": "self"
+  },
+  "ImageView": {
+    "aliases": {
+      "alt": "altText",
+      "image": "imageFile",
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "state": {
+      "naturalHeight": "naturalHeight",
+      "naturalWidth": "naturalWidth",
+      "zoomLevel": "zoomLevel"
+    },
+    "stateDefaults": {
+      "naturalHeight": 0,
+      "naturalWidth": 0,
+      "zoomLevel": 1
+    },
+    "sync": [
+      "onZoomChange",
+      "onLoad"
+    ]
+  },
+  "ItemList": {
+    "darkStyle": "ozdenDark",
+    "hasMinimal": true,
+    "setters": {
+      "selectedKeys": ["setSelected", true]
+    },
+    "state": {
+      "selected": "getSelected()",
+      "selectedKeys": "getSelectedKeys()"
+    },
+    "stateDefaults": {
+      "items": [],
+      "selected": [],
+      "selectedKeys": []
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "JsonEditor": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "wholeArgs": {
+      "onChange": [
+        1
+      ]
+    }
+  },
+  "JsonView": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "state": {
+      "selectedPath": "getSelectedPath()",
+      "selectedPathText": "getSelectedPathText()"
+    },
+    "stateDefaults": {
+      "selectedPath": null,
+      "selectedPathText": ""
+    },
+    "sync": [
+      "onSelect"
+    ]
+  },
+  "LabelEditor": {
+    "darkStyle": "dark"
+  },
+  "LeftMenu": {
+    "darkStyle": "dark"
+  },
+  "LoadingScreen": {
+    "aliases": {
+      "message": "messageText",
+      "title": "titleText"
+    },
+    "darkStyle": "ozdenDark",
+    "hasMinimal": true,
+    "onPage": true
+  },
+  "LogView": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark"
+  },
+  "MarkdownView": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark"
+  },
+  "MenuBar": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "dataParams": [
+      "value",
+      "options",
+      "items",
+      "rows",
+      "columns",
+      "tabs",
+      "selectedKeys",
+      "group",
+      "itemDataList",
+      "titleDataList",
+      "menus"
+    ],
+    "defaults": {
+      "shrink": 0
+    },
+    "hasMinimal": true
+  },
+  "NumberField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "placeholder": "",
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "NumericKeyboard": {
+    "darkStyle": "dark"
+  },
+  "PasswordField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "maxLength": 1000,
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "PhoneField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "ProgressBar": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "maxValue": 100,
+      "value": 0
+    }
+  },
+  "RadioButton": {
+    "aliases": {
+      "text": "labelText"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "checked": "checked"
+    },
+    "stateDefaults": {
+      "checked": 0,
+      "group": "default",
+      "value": ""
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "RangeSlider": {
+    "aliases": {
+      "high": "highValue",
+      "low": "lowValue",
+      "theme": "styleName",
+      "valueFormat": "formatValue"
+    },
+    "darkStyle": "roundDark",
+    "formatParams": [
+      "formatValue"
+    ],
+    "hasMinimal": true,
+    "state": {
+      "high": "highValue",
+      "low": "lowValue"
+    },
+    "stateDefaults": {
+      "maxValue": 100,
+      "minValue": 0
+    },
+    "sync": [
+      "onChangeEnd"
+    ]
+  },
+  "RichTextEditor": {
+    "darkStyle": "dark"
+  },
+  "ScrollArea": {
+    "container": "content",
+    "darkStyle": "dark",
+    "hasMinimal": true
+  },
+  "SearchInput": {
+    "darkStyle": "ozdenDark",
+    "defaults": {
+      "shrink": 0,
+      "styleName": "ozden"
+    },
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "stateDefaults": {
+      "text": ""
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "SearchResults": {
+    "darkStyle": "dark"
+  },
+  "SelectBox": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "options": [],
+      "value": null
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "SidePanel": {
+    "containerHint": "panel.body { ... }",
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "isOpened": "isOpened"
+    },
+    "sync": [
+      "onOpen",
+      "onClose"
+    ]
+  },
+  "Slider": {
+    "darkStyle": "roundDark",
+    "defaults": {
+      "styleName": "round"
+    },
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "maxValue": 100,
+      "minValue": 0,
+      "value": 0
+    },
+    "sync": [
+      "onChangeEnd"
+    ]
+  },
+  "SliderField": {
+    "aliases": {
+      "text": "labelText"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "maxValue": "maxValue",
+      "minValue": "minValue",
+      "value": "value"
+    },
+    "stateDefaults": {
+      "maxValue": 10,
+      "minValue": 0,
+      "value": 0
+    },
+    "sync": [
+      "onChange",
+      "onChangeEnd"
+    ]
+  },
+  "SmartButton": {
+    "aliases": {
+      "icon": "iconFile",
+      "text": "labelText"
+    },
+    "darkStyle": "ozdenDark",
+    "defaults": {
+      "styleName": "ozden"
+    },
+    "hasMinimal": true
+  },
+  "SmartTable": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "sizeInStyle": true,
+    "stateDefaults": {
+      "rows": []
+    }
+  },
+  "SortableList": {
+    "darkStyle": "dark",
+    "state": {
+      "order": "getKeys()"
+    }
+  },
+  "Splitter": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "containerHint": "splitter.first { ... } and splitter.second { ... }",
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "firstSizeNow": "getFirstSize()"
+    },
+    "stateDefaults": {
+      "firstSizeNow": 0
+    },
+    "sync": [
+      "onChangeEnd"
+    ]
+  },
+  "StatusBar": {
+    "aliases": {
+      "message": "messageText",
+      "theme": "styleName",
+      "tone": "messageTone"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "shrink": 0
+    },
+    "hasMinimal": true,
+    "hasOwnPlace": true
+  },
+  "StepBar": {
+    "aliases": {
+      "step": "currentStep",
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "step": "currentStep"
+    },
+    "stateDefaults": {
+      "step": 0
+    }
+  },
+  "Stepper": {
+    "darkStyle": "dark",
+    "formatParams": [
+      "valueFormat"
+    ],
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "maxValue": 10,
+      "minValue": 0,
+      "value": 1
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "Tabs": {
+    "containerHint": "tabs.panel(key) { ... }",
+    "darkStyle": "dark",
+    "defaults": {
+      "panels": 1,
+      "width": "100%"
+    },
+    "hasMinimal": true,
+    "state": {
+      "previousValue": "previousValue",
+      "value": "value"
+    },
+    "stateDefaults": {
+      "previousValue": null
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "TagInput": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "tags": "getTags()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "TextAreaField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "maxLength": 100000,
+      "minCharCount": 0,
+      "placeholder": "",
+      "required": 0,
+      "showCount": 0,
+      "styleName": "light",
+      "titleText": "",
+      "warningText": ""
+    },
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "TextField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "maxLength": 1000,
+      "placeholder": "",
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "TimePicker": {
+    "aliases": {
+      "value": "time"
+    },
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "value": ""
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "TinyTable": {
+    "darkStyle": "dark"
+  },
+  "Toggle": {
+    "darkStyle": "ozdenDark",
+    "dataParams": [],
+    "hasMinimal": true,
+    "state": {
+      "value": "value"
+    },
+    "stateDefaults": {
+      "value": 0
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "ToolBar": {
+    "aliases": {
+      "theme": "styleName"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "shrink": 0
+    },
+    "hasMinimal": true,
+    "state": {
+      "checkedKeys": "getCheckedKeys()"
+    },
+    "stateDefaults": {
+      "checkedKeys": []
+    },
+    "sync": [
+      "onClick"
+    ]
+  },
+  "Tooltip": {
+    "aliases": {
+      "position": "hintPosition",
+      "text": "hintText"
+    },
+    "hasMinimal": true,
+    "hasOwnPlace": true
+  },
+  "TreeView": {
+    "darkStyle": "dark",
+    "hasMinimal": true,
+    "state": {
+      "previousValue": "previousValue",
+      "value": "value"
+    },
+    "stateDefaults": {
+      "previousValue": null,
+      "value": null
+    },
+    "sync": [
+      "onSelect"
+    ]
+  },
+  "UrlField": {
+    "aliases": {
+      "text": "value"
+    },
+    "darkStyle": "dark",
+    "defaults": {
+      "maxLength": 2048,
+      "required": 0,
+      "styleName": "light",
+      "titleText": ""
+    },
+    "focusPart": "input",
+    "hasMinimal": true,
+    "state": {
+      "text": "getValue()"
+    },
+    "sync": [
+      "onChange"
+    ]
+  },
+  "WebView": {
+    "aliases": {
+      "html": "htmlText"
+    }
+  }
+}

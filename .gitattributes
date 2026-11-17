@@ -1,0 +1,6 @@
+# WHY: the generator reads the files of the kit; with the line ends of Windows its output would differ
+* text=auto eol=lf
+*.png binary
+*.ttf binary
+*.webp binary
+*.jpg binary

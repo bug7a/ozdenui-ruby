@@ -17,7 +17,7 @@
 require "socket"
 require "securerandom"
 require "json"
-require "cgi"
+require "uri" # WHY not the cgi library: Ruby 4.0 removed its parse, and the rest of it is going too
 
 module OzdenUI
   # What the gem is made of. A program uses the methods of OzdenUI; these classes are behind them.
@@ -168,8 +168,10 @@ module OzdenUI
         socket.write(head + "Cache-Control: no-store\r\nConnection: keep-alive\r\n\r\n", body)
       end
 
+      HTML_ESCAPES = { "&" => "&amp;", "<" => "&lt;", ">" => "&gt;", '"' => "&quot;", "'" => "&#39;" }.freeze
+
       def escape_html(text)
-        CGI.escapeHTML(text.to_s)
+        text.to_s.gsub(/[&<>"']/, HTML_ESCAPES)
       end
 
       # The page, with the title of the window (a browser window shows the title of its page).
@@ -185,7 +187,7 @@ module OzdenUI
       end
 
       def serve_file(socket, name)
-        relative = CGI.unescape(name.gsub("+", "%2B"))
+        relative = URI.decode_www_form_component(name.gsub("+", "%2B"))
         path = File.expand_path(relative, WEB_FOLDER)
         is_inside = path.start_with?(WEB_FOLDER + File::SEPARATOR)
         unless is_inside && File.file?(path)
@@ -194,11 +196,21 @@ module OzdenUI
         end
         kind = Values::MIME_TYPES[File.extname(path).downcase] || "application/octet-stream"
         respond(socket, 200, kind, File.binread(path))
+      rescue ArgumentError # a broken %-code in the address
+        respond(socket, 404, "text/plain", "not found")
+      end
+
+      # The page=... of an address ("" when there is none, or when the address is broken).
+      def page_of(query)
+        pair = URI.decode_www_form(query).assoc("page")
+        pair ? pair.last.to_s : ""
+      rescue ArgumentError
+        ""
       end
 
       # The event stream of the page: every message of the program is one "data:" line.
       def serve_commands(socket, query)
-        page_id = CGI.parse(query)["page"].first.to_s
+        page_id = page_of(query)
         socket.write("HTTP/1.1 200 OK\r\nContent-Type: text/event-stream\r\nCache-Control: no-store\r\nConnection: keep-alive\r\n\r\n")
         outgoing = @mutex.synchronize { channel_of(page_id) }
         @on_stream&.call(true)

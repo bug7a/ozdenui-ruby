@@ -40,7 +40,7 @@ const TEXTS = {
         copyFailed: "The code could not be copied.",
 
         // HERO
-        heroEyebrow: "v{version} · experimental · Ruby {ruby}+ · tested on macOS", // WHY  : on a phone "tested on macOS" goes to the second line together
+        heroEyebrow: "v{version} · experimental · Ruby {ruby}+ · tested on macOS and Windows", // WHY  : on a phone "tested on macOS" goes to the second line together
         heroTitle: "Modern desktop windows, in plain Ruby", // WHY  : the line breaks before "in", and "Ruby" is never alone on a line
         heroLead: "Write the window in Ruby: boxes, texts, buttons and ready components appear in a small window of its own. Only Ruby: no JavaScript, no HTML, no CSS, no front-end build, no other gem and no compiler.",
         heroPrimary: "Get started",
@@ -204,7 +204,7 @@ const TEXTS = {
         readHandbook: "Read the handbook", // the hero and the end of Start: a verb, as the other buttons
         agentsTitle: "With an AI assistant",
         agentsText: "OzdenUI is new, so an assistant does not know it yet. One command writes its rules (the layout, the events, the components, the mistakes to avoid) into AGENTS.md of your project, where Claude Code, Codex, Cursor or Copilot read them by themselves. And the assistant can look at the window it made, without a window.",
-        startNote: "Ruby {ruby}+. Tested on macOS: the window is the web view of the system (WKWebView). On Windows and Linux it is an app window of Edge or Chrome; these two are checked by the tests of the repository, not yet by hand.",
+        startNote: "Ruby {ruby}+. Tested on macOS and Windows 11. On macOS the window is the web view of the system (WKWebView); on Windows and Linux it is an app window of Edge or Chrome. Linux is checked by the tests of the repository, not yet by hand.",
 
         // FOOTER
         footerText: "OzdenUI for Ruby is open source under the {license} license.",
@@ -232,8 +232,8 @@ const TEXTS = {
         copyFailed: "Kod kopyalanamadı.",
 
         // HERO
-        heroEyebrow: "v{version} · deneysel · Ruby {ruby}+ · macOS'ta denendi",
-        heroTitle: "Düz Ruby ile modern masaüstü pencereleri",
+        heroEyebrow: "v{version} · deneysel · Ruby {ruby}+ · macOS'ta ve Windows'ta denendi",
+        heroTitle: "Düz Ruby ile modern masaüstü pencereleri",
         heroLead: "Pencereyi Ruby ile yazın: kutular, metinler, düğmeler ve hazır bileşenler kendi küçük penceresinde görünür. Yalnız Ruby: JavaScript, HTML, CSS ve ön yüz derlemesi yok; başka gem ve derleyici de yok.",
         heroPrimary: "Başlayın",
         heroSecondary: "Örneklere bakın",
@@ -396,7 +396,7 @@ const TEXTS = {
         readHandbook: "El kitabını okuyun",
         agentsTitle: "Bir yapay zekâ yardımcısıyla",
         agentsText: "OzdenUI yeni, bu yüzden yardımcılar onu henüz bilmez. Tek bir komut, kurallarını (yerleşim, olaylar, bileşenler, kaçınılacak hatalar) projenizin AGENTS.md dosyasına yazar; Claude Code, Codex, Cursor ya da Copilot onları kendiliğinden okur. Yardımcı, yaptığı pencereye pencere açmadan da bakabilir.",
-        startNote: "Ruby {ruby}+. macOS'ta denendi: pencere sistemin web görünümüdür (WKWebView). Windows'ta ve Linux'ta Edge'in ya da Chrome'un bir uygulama penceresidir; bu ikisi deponun testleriyle denetlenir, henüz elle denenmedi.",
+        startNote: "Ruby {ruby}+. macOS'ta ve Windows 11'de denendi. macOS'ta pencere sistemin web görünümüdür (WKWebView); Windows'ta ve Linux'ta Edge'in ya da Chrome'un bir uygulama penceresidir. Linux deponun testleriyle denetlenir, henüz elle denenmedi.",
 
         // FOOTER
         footerText: "OzdenUI for Ruby, {license} lisansı ile açık kaynaktır.",

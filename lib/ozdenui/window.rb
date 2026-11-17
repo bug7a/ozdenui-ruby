@@ -24,6 +24,10 @@ module OzdenUI
     # @api private
     module Window
       STREAM_GONE_AFTER = 1.5 # a page that does not listen this long is a closed window
+      # WHY: Edge signs the new profile of the program into the Microsoft account of Windows by itself and syncs the
+      #      passwords, the history and the tabs of the user into it, with a dialog over the window. (One flag of
+      #      --disable-features: a second one would replace it.)
+      PROFILE_FLAGS = ["--disable-sync", "--disable-features=msImplicitSignin"].freeze
 
       module_function
 
@@ -140,7 +144,7 @@ module OzdenUI
             FileUtils.mkdir_p(profile)
             pid = Process.spawn(browser, "--app=#{address}", "--window-size=#{@app.options[:width]},#{@app.options[:height]}",
                                 "--user-data-dir=#{profile}", "--no-first-run", "--no-default-browser-check",
-                                out: File::NULL, err: File::NULL)
+                                *Window::PROFILE_FLAGS, out: File::NULL, err: File::NULL)
           rescue SystemCallError
             pid = nil
           end

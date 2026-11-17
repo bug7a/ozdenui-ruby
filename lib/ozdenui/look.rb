@@ -66,7 +66,8 @@ module OzdenUI
         reader, writer = IO.pipe
         pid = Process.spawn(browser, "--headless=new", "--remote-debugging-port=0", "--user-data-dir=#{profile}",
                             "--no-first-run", "--no-default-browser-check", "--hide-scrollbars", "--disable-gpu",
-                            "--window-size=#{width},#{height}", "about:blank", out: File::NULL, err: writer)
+                            *Window::PROFILE_FLAGS, "--window-size=#{width},#{height}", "about:blank",
+                            out: File::NULL, err: writer)
         writer.close
         link = WebSocket.new(devtools_address(reader))
         target = link.call(nil, "Target.createTarget", "url" => "about:blank")

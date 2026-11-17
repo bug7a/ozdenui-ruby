@@ -143,6 +143,21 @@ class OzdenUITest < Minitest::Test
   end
 
   # The files of the gem start with Bismillah and carry the notice (the rule of the project).
+  # Ruby 4.0 removed CGI.parse (the gem did not start there): no part of cgi in the gem.
+  def test_no_cgi
+    uses = Dir["lib/**/*.rb", "exe/*"].select { |path| File.read(path) =~ /\bCGI\b|require "cgi/ }
+    assert_empty uses
+  end
+
+  # Edge signed the profile of the program into the Microsoft account and synced the passwords into it (winpc).
+  def test_browser_stays_private
+    %w[lib/ozdenui/window.rb lib/ozdenui/look.rb].each do |path|
+      assert_includes File.read(path), "*Window::PROFILE_FLAGS", path
+    end
+    assert_includes OzdenUI::Runtime::Window::PROFILE_FLAGS, "--disable-sync"
+    assert_includes File.read("lib/ozdenui/web/index.html"), %(<meta name="google" content="notranslate">)
+  end
+
   def test_headers
     files = Dir[File.join(ROOT, "lib", "**", "*.rb")] + Dir[File.join(ROOT, "{tools,test}", "*.rb")] + [File.join(ROOT, "exe", "ozdenui")]
     assert_operator files.length, :>, 12

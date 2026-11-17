@@ -47,8 +47,8 @@ ruby counter.rb
 
 **[The site](https://bug7a.github.io/ozdenui-ruby/)** · **[The handbook](https://bug7a.github.io/ozdenui-ruby/handbook/)** (ten short chapters, English and Turkish; the files are in [handbook/](handbook/README.md))
 
-v0.1, experimental: made and tested on macOS; Windows and Linux use the window of Edge or Chrome and are checked by
-the tests of the repository, not yet by hand. Ruby 2.6 or newer.
+v0.1, experimental: made on macOS, tested on macOS and Windows 11; Windows and Linux use the window of Edge or Chrome
+(Linux is checked by the tests of the repository, not yet by hand). Ruby 2.6 or newer.
 
 - **macOS:** the window is the web view of the system (WKWebView), inside the program, made with `fiddle`, the
   library of Ruby that calls the system. Nothing to install: it works with the Ruby that comes with macOS

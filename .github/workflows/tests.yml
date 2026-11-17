@@ -1,5 +1,6 @@
 # Every push: the tests (with a real page in a hidden browser), then a picture of every example, light and dark,
-# on macOS, Windows and Linux, with the oldest Ruby the gem takes and the newest.
+# on macOS, Windows and Linux, with the oldest Ruby the gem takes, the last of 3 and the newest (4.0 removed
+# parts of the standard library that 3.4 still had).
 name: tests
 
 on:
@@ -13,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
-        ruby: ["2.6", "3.4"]
+        ruby: ["2.6", "3.4", "4.0"]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     steps:

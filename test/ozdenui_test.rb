@@ -149,6 +149,19 @@ class OzdenUITest < Minitest::Test
     assert_empty uses
   end
 
+  # A program without a console (rubyw) got a console window behind every file dialog of Windows (winpc).
+  def test_the_file_dialog_of_windows_has_no_console
+    require_relative "../lib/ozdenui/hidden_process"
+    process = OzdenUI::Runtime::HiddenProcess
+    assert_equal 0x08000000, process::CREATE_NO_WINDOW
+    line = process.command_line("$d.FileNames", 'C:\Temp\it\'s.txt')
+    assert_match(/\Apowershell\.exe -NoProfile -NonInteractive -STA -EncodedCommand [A-Za-z0-9+\/=]+\z/, line)
+    script = line.split(" ").last.unpack1("m0").force_encoding("UTF-16LE").encode("UTF-8")
+    assert_includes script, "$lines = & { $d.FileNames }"
+    assert_includes script, "WriteAllLines('C:\\Temp\\it''s.txt'"
+    assert_includes File.read(File.join(ROOT, "lib/ozdenui/dialogs.rb")), "lines = windows_dialog(power_shell("
+  end
+
   # Edge signed the profile of the program into the Microsoft account and synced the passwords into it (winpc).
   def test_browser_stays_private
     %w[lib/ozdenui/window.rb lib/ozdenui/look.rb].each do |path|

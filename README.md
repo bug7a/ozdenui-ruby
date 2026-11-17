@@ -212,7 +212,7 @@ In a dark window every component takes its dark look by itself, and the plain ob
 - A file dropped on a `FilePicker` gives its name, not its path on the computer; a click on it opens the file dialog
   of the system, and those files have their paths (`picker.paths`).
 - With Bundler on Ruby 3.5 or newer, add `gem "fiddle"` to the Gemfile (it left the default gems); without it the
-  window of macOS is the window of a browser.
+  window of macOS is the window of a browser, and a file dialog of Windows opens with a console window behind it.
 - No hot reload: `ruby app.rb` again.
 
 ## Development

@@ -189,7 +189,7 @@ one) and the gem. A `Gemfile` next to the program says what it needs:
 source "https://rubygems.org"
 
 gem "ozdenui"
-gem "fiddle" if RUBY_VERSION >= "3.5" # the window of macOS: fiddle left the default gems of Ruby 3.5
+gem "fiddle" if RUBY_VERSION >= "3.5" # the window of macOS, the file dialogs of Windows: fiddle left the default gems of Ruby 3.5
 ```
 
 ```

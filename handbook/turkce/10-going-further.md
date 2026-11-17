@@ -189,7 +189,7 @@ bir tane vardır) ve gem gerekir. Programın yanındaki bir `Gemfile` neye ihtiy
 source "https://rubygems.org"
 
 gem "ozdenui"
-gem "fiddle" if RUBY_VERSION >= "3.5" # macOS'un penceresi: fiddle, Ruby 3.5'te varsayılan gem'lerden çıktı
+gem "fiddle" if RUBY_VERSION >= "3.5" # macOS'un penceresi, Windows'un dosya diyalogları: fiddle, Ruby 3.5'te varsayılan gem'lerden çıktı
 ```
 
 ```

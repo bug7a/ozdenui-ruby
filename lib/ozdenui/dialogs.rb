@@ -58,6 +58,10 @@ module OzdenUI
         app = OzdenUI.app
         app.flush if app && app.app_thread? # what the program drew before the dialog is on the page
         types = Array(types).map { |ending| ending.to_s.sub(/\A\./, "") }
+        if system_name == :windows
+          lines = windows_dialog(power_shell(kind, title, directory, file_name, types))
+          return lines if lines
+        end
         command = case system_name
                   when :mac then ["osascript", "-e", apple_script(kind, title, directory, file_name, types)]
                   when :windows then ["powershell", "-NoProfile", "-STA", "-Command", power_shell(kind, title, directory, file_name, types)]
@@ -68,6 +72,16 @@ module OzdenUI
       rescue SystemCallError => error
         $stderr.puts "ozdenui: the file dialog of the system could not open: #{error.message}"
         []
+      end
+
+      # The lines of the dialog of Windows, started without a console window (hidden_process.rb); nil when fiddle
+      # could not be used (then Open3 starts it, as before).
+      def windows_dialog(script)
+        require_relative "hidden_process"
+        HiddenProcess.run_power_shell(script)
+      rescue LoadError, Fiddle::DLError => error
+        $stderr.puts "ozdenui: the file dialog opens with a console window (#{error.message})"
+        nil
       end
 
       def quoted(text)

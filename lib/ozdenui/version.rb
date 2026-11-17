@@ -11,5 +11,5 @@
 # SPDX-License-Identifier: Apache-2.0
 
 module OzdenUI
-  VERSION = "0.1.3"
+  VERSION = "0.1.4"
 end

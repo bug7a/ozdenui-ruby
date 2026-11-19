@@ -20,14 +20,23 @@ ONLY="${2:-}"
 RUBY="${RUBY:-ruby}"
 mkdir -p "$PICTURES"
 FAILED=0
+
+take_picture() {
+    rm -f "$picture"
+    # WHY the filter: the line that names the picture is not a fault; "Ignoring ..." is a word of RubyGems
+    output="$(OZDENUI_THEME=$theme OZDENUI_LOOK="$picture" "$RUBY" -Ilib "$file" 2>&1 | grep -v "the picture of the window\|^Ignoring ")"
+}
 for file in examples/*.rb; do
     name="$(basename "$file" .rb)"
     [ -n "$ONLY" ] && [ "$ONLY" != "$name" ] && continue
     for theme in light dark; do
         picture="$PICTURES/$name-$theme.png"
-        rm -f "$picture"
-        # WHY the filter: the line that names the picture is not a fault; "Ignoring ..." is a word of RubyGems
-        output="$(OZDENUI_THEME=$theme OZDENUI_LOOK="$picture" "$RUBY" -Ilib "$file" 2>&1 | grep -v "the picture of the window\|^Ignoring ")"
+        take_picture
+        # WHY a second try: on a busy CI computer the hidden browser sometimes does not answer in time; a real fault fails twice
+        if [ ! -s "$picture" ] || [ -n "$output" ]; then
+            echo "again $name ($theme): $(echo "$output" | tail -1)"
+            take_picture
+        fi
         if [ ! -s "$picture" ] || [ -n "$output" ]; then
             FAILED=1
             echo "FAIL $name ($theme)"

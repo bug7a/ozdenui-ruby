@@ -27,8 +27,12 @@ jobs:
         run: |
           ruby tools/gen.rb
           git diff --exit-code lib/ozdenui/kit.json lib/ozdenui/COMPONENTS.md
+      # WHY a second try of all the tests: test_window plays a page in a hidden browser, and on a busy CI computer it
+      #     sometimes ran out of time (2026-11-26: twice in a day, each time a different step); a real fault fails twice.
+      #     The whole file again, not test_window alone: a fault of another test must not pass on the second try.
       - name: The tests
-        run: ruby test/ozdenui_test.rb
+        shell: bash
+        run: ruby test/ozdenui_test.rb || { echo "again: the tests once more"; ruby test/ozdenui_test.rb; }
       - name: The gem is built
         run: gem build ozdenui.gemspec
       - name: Every example in a hidden browser

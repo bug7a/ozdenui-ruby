@@ -17,6 +17,24 @@ and no compiler**. Your Ruby code makes the objects, and a window shows them.
 
 The window above is [examples/gallery.rb](examples/gallery.rb), the main components of the kit in one window.
 
+## Why OzdenUI
+
+Made for a Ruby script or a command line tool that needs a window, and a tool given to a team as one Ruby file.
+
+- **Only Ruby, and only one gem.** The window is made of Ruby objects: no HTML, CSS or JavaScript to write, no other
+  gem, no compiler. It runs on Ruby 2.6 or newer, also the Ruby that comes with macOS.
+- **A modern look from the first line.** 83 components of the [OzdenUI kit](https://bug7a.github.io/js-components/),
+  each a method: buttons, fields, lists, a table of 100000 rows, charts, a date picker, a chat, a JSON editor, a
+  canvas. A dark window is one word: `run(theme: "dark")`.
+- **Code that reads like the window.** Blocks for the groups, so the shape of the code is the shape of the window.
+  Your program runs on one thread, one task at a time: no locks.
+- **Small and offline.** The gem carries basic.js and its components; no internet, no server of yours, no browser tab.
+- **Easy to learn, with an AI assistant too.** A handbook of ten short chapters in English and Turkish, every program
+  in it run by the tests. `ozdenui agents` teaches your assistant the gem, and `OZDENUI_LOOK=app.png ruby app.rb` lets
+  it see the window it made.
+- **Tested on three systems.** At every push the tests run and every example is drawn on Windows, macOS and Linux,
+  with Ruby 2.6, 3.4 and 4.0. Open source, Apache 2.0.
+
 ```ruby
 require "ozdenui"
 include OzdenUI

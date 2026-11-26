@@ -80,7 +80,7 @@ def read_csv(path)
 end
 
 run(title: "CSV viewer", width: 900, height: 640) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 14, padding: 30, align: "left top") do
     HGroup(hug: true, gap: 14, align: "left center") do
       Label(text: "CSV viewer", font_size: 24, bold: true)

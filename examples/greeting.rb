@@ -15,7 +15,7 @@ def greet
 end
 
 run(title: "Greeting", width: 420, height: 320) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 14, padding: 40) do
     @name = TextField(title_text: "What is your name?", placeholder: "Ada", width: 300, on_enter: method(:greet))
     SmartButton(label_text: "Greet", tone: "cyan", on_click: method(:greet))

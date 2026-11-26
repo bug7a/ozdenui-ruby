@@ -13,7 +13,7 @@ def add(step)
 end
 
 run(title: "Counter", width: 360, height: 260) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 16) do
     @label = Label(text: "0", font_size: 48)
     HGroup(hug: true, gap: 10) do

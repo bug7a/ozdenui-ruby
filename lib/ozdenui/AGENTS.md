@@ -18,6 +18,8 @@ require "ozdenui"
 include OzdenUI
 
 PAGE_COLOR = "#F4F5F7"
+BAR_COLOR = "#FFFFFF"
+BAR_COLOR_DARK = "#232322"
 
 @notes = [] # the data of the program is plain Ruby
 
@@ -36,9 +38,9 @@ end
 
 # Once, at the end of the program. The block runs when the window is ready: make the objects here.
 run(title: "Notes", width: 480, height: 420) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 0) do # a group is as large as its box: here the whole window
-    HGroup(height: 60, padding: [16, 0], gap: 10, align: "left center", color: "white") do
+    HGroup(height: 60, padding: [16, 0], gap: 10, align: "left center", color: dark? ? BAR_COLOR_DARK : BAR_COLOR) do
       @name = TextField(placeholder: "A new note", width: 260, on_enter: method(:add_note))
       SmartButton(label_text: "Add", tone: "cyan", on_click: method(:add_note))
     end

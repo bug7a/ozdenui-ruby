@@ -21,7 +21,7 @@ def change
 end
 
 run(title: "The basic objects", width: 360, height: 260) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
 
   # An object has a place: left, top, width, height. The objects made in the block of a Box are inside it.
   @card = Box(20, 20, 320, 110, color: CARD_COLORS[0], round: 12) do

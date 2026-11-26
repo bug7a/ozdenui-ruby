@@ -5,6 +5,7 @@ include OzdenUI
 
 PAGE_COLOR = "#F4F5F7"
 SCREEN_COLOR = "#FFFFFF"
+SCREEN_COLOR_DARK = "#232322"
 ERROR_TEXT = "Error"
 MOST_DIGITS = 12
 
@@ -88,9 +89,9 @@ def calculate
 end
 
 run(title: "Calculator", width: 320, height: 410) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 10, padding: 16, align: "left top") do
-    @screen = Label(text: "0", width: "100%", font_size: 34, bold: true, text_align: "right", color: SCREEN_COLOR,
+    @screen = Label(text: "0", width: "100%", font_size: 34, bold: true, text_align: "right", color: dark? ? SCREEN_COLOR_DARK : SCREEN_COLOR,
                     round: 10, padding: [14, 8], shrink: 0)
     GridGroup(columns: 4, gap: 8) do |grid|
       KEYS.each do |key|

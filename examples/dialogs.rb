@@ -35,7 +35,7 @@ def show_ask
 end
 
 run(title: "Dialogs", width: 640, height: 420) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   VGroup(gap: 16, padding: 36, align: "left top") do
     Label(text: "Dialogs", font_size: 24, bold: true)
     HGroup(hug: true, gap: 8) do

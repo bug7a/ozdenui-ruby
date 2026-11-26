@@ -47,7 +47,7 @@ def show_count
 end
 
 run(title: "To do", width: 540, height: 560) do |page|
-  page.color = PAGE_COLOR
+  page.color = PAGE_COLOR unless dark? # a dark window has its own ground
   items = FIRST_TASKS.map { |title| new_item(title) }
   @total = items.length
   VGroup(gap: 14, padding: 36, align: "left top") do

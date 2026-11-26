@@ -32,7 +32,8 @@ jobs:
       #     The whole file again, not test_window alone: a fault of another test must not pass on the second try.
       - name: The tests
         shell: bash
-        run: ruby test/ozdenui_test.rb || { echo "again: the tests once more"; ruby test/ozdenui_test.rb; }
+        run: |
+          ruby test/ozdenui_test.rb || { echo "again: the tests once more"; ruby test/ozdenui_test.rb; }
       - name: The gem is built
         run: gem build ozdenui.gemspec
       - name: Every example in a hidden browser

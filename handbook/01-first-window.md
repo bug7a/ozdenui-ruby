@@ -12,8 +12,8 @@ It needs Ruby 2.6 or newer, and no other gem: nothing is compiled, so no C compi
   library of Ruby that calls the system. It works with the Ruby that comes with macOS (`/usr/bin/ruby`); with that
   Ruby, `gem install --user-install ozdenui` installs the gem in your home folder (its own folder of gems needs
   `sudo`).
-- **Windows, Linux:** the window is an app window of Edge or Chrome: no address bar, no tabs. On Windows, Edge is
-  always there.
+- **Windows, Linux:** the window is an app window of Edge, Chrome or Chromium: no address bar, no tabs. On Windows,
+  Edge is always there.
 
 There is no build step: `ruby app.rb` runs the program as it is written.
 

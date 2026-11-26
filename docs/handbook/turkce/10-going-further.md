@@ -203,8 +203,8 @@ bundle exec ruby app.rb
 
 ## v0.1'in sınırları
 
-- Elle denenmiş sistemler macOS ve Windows 11'dir. Windows ve Linux, Edge'in ya da Chrome'un uygulama penceresini açar
-  (hiçbiri yoksa varsayılan tarayıcının bir sekmesini); Linux deponun testleriyle denetlenir, henüz elle değil.
+- Denenmiş sistemler macOS, Windows 11 ve Linux'tur (Ubuntu 24.04 ve onun Chromium'u). Windows ve Linux, Edge'in,
+  Chrome'un ya da Chromium'un uygulama penceresini açar (hiçbiri yoksa varsayılan tarayıcının bir sekmesini).
 - macOS'ta menü çubuğu programı penceresinin başlığıyla anar, ama Dock onu bir Ruby programı olarak gösterir (bir
   uygulama paketi değildir).
 - Bir program için tek pencere.

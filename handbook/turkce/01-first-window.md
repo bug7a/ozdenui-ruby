@@ -12,8 +12,8 @@ araçları da gerekmez.
 - **macOS:** pencere, programınızın içindeki sistemin web görünümüdür (WKWebView); Ruby'nin sistemi çağıran kütüphanesi
   `fiddle` ile yapılır. macOS ile gelen Ruby'yle (`/usr/bin/ruby`) çalışır; o Ruby ile
   `gem install --user-install ozdenui` gem'i ev klasörünüze kurar (onun kendi gem klasörü `sudo` ister).
-- **Windows, Linux:** pencere, Edge'in ya da Chrome'un bir uygulama penceresidir: adres çubuğu yok, sekme yok.
-  Windows'ta Edge her zaman vardır.
+- **Windows, Linux:** pencere, Edge'in, Chrome'un ya da Chromium'un bir uygulama penceresidir: adres çubuğu yok, sekme
+  yok. Windows'ta Edge her zaman vardır.
 
 Derleme adımı yoktur: `ruby app.rb` programı yazıldığı gibi çalıştırır.
 

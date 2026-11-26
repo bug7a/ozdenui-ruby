@@ -47,14 +47,14 @@ ruby counter.rb
 
 **[The site](https://bug7a.github.io/ozdenui-ruby/)** · **[The handbook](https://bug7a.github.io/ozdenui-ruby/handbook/)** (ten short chapters, English and Turkish; the files are in [handbook/](handbook/README.md))
 
-v0.1, experimental: made on macOS, tested on macOS and Windows 11; Windows and Linux use the window of Edge or Chrome
-(Linux is checked by the tests of the repository, not yet by hand). Ruby 2.6 or newer.
+v0.1, experimental: made on macOS, tested on macOS, Windows 11 and Linux (Ubuntu 24.04 with its Chromium); Windows and
+Linux use the window of Edge, Chrome or Chromium. Ruby 2.6 or newer.
 
 - **macOS:** the window is the web view of the system (WKWebView), inside the program, made with `fiddle`, the
   library of Ruby that calls the system. Nothing to install: it works with the Ruby that comes with macOS
   (`/usr/bin/ruby`).
-- **Windows, Linux:** the window is an app window of Edge or Chrome (no address bar, no tabs): nothing to install on
-  Windows, where Edge is always there.
+- **Windows, Linux:** the window is an app window of Edge, Chrome or Chromium (no address bar, no tabs): nothing to
+  install on Windows, where Edge is always there.
 
 **With an AI assistant** (Claude Code, Codex, Cursor, Copilot...): OzdenUI is new, so an assistant does not know it
 yet. One command writes its rules (how a program is made, the layout, the events, the components, the mistakes to
@@ -202,8 +202,8 @@ In a dark window every component takes its dark look by itself, and the plain ob
 
 ## Limits of v0.1
 
-- macOS is the tested system. Windows and Linux open the app window of Edge or Chrome (with none of them: a tab of
-  the default browser); the web view of the system there is a later step.
+- macOS, Windows 11 and Linux (Ubuntu 24.04) are tested. Windows and Linux open the app window of Edge, Chrome or
+  Chromium (with none of them: a tab of the default browser); the web view of the system there is a later step.
 - On macOS the menu bar names the program by the title of its window, but the Dock shows it as a Ruby program (it is
   not an app bundle).
 - One window for a program.

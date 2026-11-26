@@ -24,7 +24,7 @@ const CONFIG = {
 
     // *** BRAND:
     brandName: "OzdenUI",
-    version: "0.1.4", // the version of the gem (js/config.js of the main page of the site has it too)
+    version: "0.1.5", // the version of the gem (js/config.js of the main page of the site has it too)
 
     // *** PATHS:
     // The root of the site (the main page of the gem) from the address of this page: it is always <site>/handbook/.

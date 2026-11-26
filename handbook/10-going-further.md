@@ -203,8 +203,8 @@ bundle exec ruby app.rb
 
 ## Limits of v0.1
 
-- macOS and Windows 11 are tried by hand. Windows and Linux open the app window of Edge or Chrome (with none of them,
-  a tab of the default browser); Linux is checked by the tests of the repository, not yet by hand.
+- macOS, Windows 11 and Linux (Ubuntu 24.04 with its Chromium) are tried. Windows and Linux open the app window of
+  Edge, Chrome or Chromium (with none of them, a tab of the default browser).
 - On macOS the menu bar names the program by the title of its window, but the Dock shows it as a Ruby program (it is
   not an app bundle).
 - One window for a program.

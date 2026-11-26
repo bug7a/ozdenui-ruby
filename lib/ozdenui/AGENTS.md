@@ -206,5 +206,5 @@ Each is a method of its name; its state is read from the program (`field.text`, 
   the code: `after(3000) { close }` as the first line of the block of `run`, then read the terminal.
 - A check that plays the program from code must not reach a dialog: it waits for a person.
 - `run(debug: true)` gives the developer tools of the web view (right click > Inspect Element).
-- macOS: the window is the web view of the system. Windows and Linux: the app window of Edge or Chrome. The gem needs
+- macOS: the window is the web view of the system. Windows and Linux: the app window of Edge, Chrome or Chromium. The gem needs
   no other gem and no compiler; Ruby 2.6 or newer (also the Ruby that comes with macOS).

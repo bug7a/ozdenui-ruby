@@ -171,6 +171,21 @@ class OzdenUITest < Minitest::Test
     assert_includes File.read("lib/ozdenui/web/index.html"), %(<meta name="google" content="notranslate">)
   end
 
+  # Ubuntu's Chromium is a snap: the profile of the program goes into the folder of the snap, which it can write.
+  def test_browser_profile_of_a_snap
+    window = OzdenUI::Runtime::Window
+    skip "a snap is a package of Linux" unless OzdenUI::Runtime::Dialogs.system_name == :linux
+    Dir.mktmpdir do |folder|
+      wrapper = File.join(folder, "chromium-browser")
+      File.write(wrapper, "#!/bin/sh\n# the wrapper of Ubuntu\nexec /snap/bin/chromium \"$@\"\n")
+      assert_equal "chromium", window.snap_name("/snap/bin/chromium")
+      assert_equal "chromium", window.snap_name(wrapper)
+      assert_nil window.snap_name("/bin/sh")
+    end
+    assert window.browser_profile("/snap/bin/chromium").start_with?(File.join(Dir.home, "snap", "chromium", "common", "ozdenui"))
+    assert window.browser_profile("/bin/sh").start_with?(window.cache_folder)
+  end
+
   def test_headers
     files = Dir[File.join(ROOT, "lib", "**", "*.rb")] + Dir[File.join(ROOT, "{tools,test}", "*.rb")] + [File.join(ROOT, "exe", "ozdenui")]
     assert_operator files.length, :>, 12

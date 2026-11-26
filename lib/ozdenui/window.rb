@@ -66,6 +66,33 @@ module OzdenUI
         File.basename($PROGRAM_NAME, ".*").gsub(/[^A-Za-z0-9-]/, "_")
       end
 
+      # The profile of the program in a browser.
+      def browser_profile(browser)
+        # WHY the folder of a snap: Ubuntu's Chromium is a snap, which can not write a hidden folder of the home
+        #     (~/.cache): it showed "Failed To Create Data Directory" and the page never came. Its own
+        #     ~/snap/<name>/common it can.
+        name = snap_name(browser)
+        return File.join(Dir.home, "snap", name, "common", "ozdenui", "browser-profile-#{program_name}") if name
+        File.join(cache_folder, "browser-profile-#{program_name}")
+      rescue ArgumentError
+        File.join(cache_folder, "browser-profile-#{program_name}")
+      end
+
+      # The snap a browser command starts: /snap/bin/chromium, or a script that runs one (Ubuntu's
+      # /usr/bin/chromium-browser); nil for any other browser.
+      def snap_name(browser)
+        return nil unless Dialogs.system_name == :linux
+        text = browser.to_s
+        unless text.start_with?("/snap/bin/")
+          head = File.open(browser, "rb") { |file| file.read(4096) }.to_s # a browser itself is a program: not read further
+          return nil unless head.start_with?("#!")
+          text = head
+        end
+        text[%r{/snap/bin/([a-z0-9-]+)}, 1]
+      rescue SystemCallError
+        nil
+      end
+
       # A browser of this computer that opens an app window (Chromium kind): Edge is on every Windows.
       def find_browser
         given = ENV["OZDENUI_BROWSER"].to_s
@@ -139,7 +166,7 @@ module OzdenUI
         if browser
           # WHY a profile of the program: the browser is a process of its own then, which ends with the window (a
           #      browser that was already open would take the window into its process, with its tabs and its size)
-          profile = File.join(Window.cache_folder, "browser-profile-#{Window.program_name}")
+          profile = Window.browser_profile(browser)
           begin
             FileUtils.mkdir_p(profile)
             pid = Process.spawn(browser, "--app=#{address}", "--window-size=#{@app.options[:width]},#{@app.options[:height]}",

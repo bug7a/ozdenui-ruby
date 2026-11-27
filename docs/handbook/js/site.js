@@ -78,12 +78,14 @@ SiteApp.load = function () {
         texts.forEach(function (text, index) {
             const chapter = SiteApp.chapters[index];
             if (text === null) text = SiteApp.missingChapterText(chapter);
+            Markdown.chapterId = chapter.id;
             chapter.doc = Markdown.parse(text);
             // "OzdenUI for Ruby — The Handbook" -> "The Handbook"
             chapter.title = chapter.doc.title.replace(/^OzdenUI(?: for Ruby)?\s*[—–-]\s*/, "") || chapter.id;
             // The menu: the name CONFIG gives the chapter (the introduction), else its title
             chapter.shortTitle = (chapter.menuTitle && chapter.menuTitle[SITE.lang]) || chapter.title;
         });
+        Markdown.chapterId = "";
 
         SiteSearch.build(SiteApp.chapters.filter(function (chapter) { return !chapter.missing; }));
 

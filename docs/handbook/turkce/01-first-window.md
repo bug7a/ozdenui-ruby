@@ -149,9 +149,10 @@ end
 `@name.text` her zaman alandaki metindir: sayfa onu her tuşta gönderir. Bir `Label` yazılan metni olduğu gibi gösterir
 (bir `<b>`, `<b>` olarak kalır).
 
-Kendi sınıfınız da aynı iyi çalışır (metotlarında `@name = TextField(...)`, sonra `run { NotesApp.new.start }`):
-9. bölüm kendi bileşeninizi böyle yapar. Dosyanın en üstündeki kendi metotlarınıza OzdenUI'nin (`run`, `close`,
-`ask`, `page`, `after`) ya da Ruby'nin (`send`, `format`, `open`) metotlarının adlarını vermeyin.
+Kendi sınıfınız da aynı iyi çalışır (metotlarında `@name = TextField(...)`, sonra
+`run { NotesApp.new.start }`): 9. bölüm kendi bileşeninizi böyle yapar. Dosyanın en üstündeki kendi metotlarınıza
+OzdenUI'nin (`run`, `close`, `ask`, `page`, `after`) ya da Ruby'nin (`send`, `format`, `open`) metotlarının adlarını
+vermeyin.
 `examples/greeting.rb` yukarıdakine benzer bir programdır.
 
 ## Bir pencereye onu açmadan bakmak
